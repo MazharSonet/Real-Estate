@@ -5,10 +5,10 @@
 </title>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css'); ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-theme.css'); ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-theme.min.css'); ?>" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-theme.css" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-theme.min.css" type="text/css">
 	<!--link rel="stylesheet" href="loaclhost/bootstrap/css/bootstrap.css"   type="text/css"/>
 	<link rel="stylesheet" href="localhost/css/bootstrap.min.css"  type="text/css"/>
 	<link rel="stylesheet" href="css/bootstrap-theme.css"  type="text/css"/>
@@ -50,6 +50,9 @@
 	        	 </ul>
 	        	 <ul class="nav navbar-nav">
 	       		 	<li><a href="#">Contact</a></li>
+	        	 </ul>
+	        	 <ul class="nav navbar-nav">
+	       		 	<li><a href="about">About Us</a></li>
 	        	 </ul></div><!-- /.navbar-collapse -->
 	 		 </div><!-- /.container-fluid -->
 		</nav>	
@@ -60,17 +63,17 @@
 		<div class="row">
 			<div class="col-md-3 sidebar"> <!--sidebar-->
 				<div class="list-group">
-        			<span href="#" class="list-group-item active">
+        			<span href="" class="list-group-item active">
            			 	Plots
        				</span>
-			        <a href="#" class="list-group-item">
+			        <a href="plot_view" class="list-group-item">
 			             On Going project
 			        </a>
 			        <a href="#" class="list-group-item">
 			             Ready flat
 			        </a>
-			        <a href="#" class="list-group-item">
-			             Gallery
+			        <a href="plot" class="list-group-item">
+			             Map view
 			        </a>
 
     			</div> 
@@ -114,9 +117,7 @@
 						</form>
 						</a>
 					</div>
-					<a class="list-gruop-item" href="about.html">
-							About us
-					</a>
+					
 					</div>
 
 				       

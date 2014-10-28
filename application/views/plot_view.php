@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 
 <title>
-	Employee
+	Home
 </title>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css'); ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-theme.css'); ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-theme.min.css'); ?>" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-theme.css" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-theme.min.css" type="text/css">
+	<!--link rel="stylesheet" href="loaclhost/bootstrap/css/bootstrap.css"   type="text/css"/>
+	<link rel="stylesheet" href="localhost/css/bootstrap.min.css"  type="text/css"/>
+	<link rel="stylesheet" href="css/bootstrap-theme.css"  type="text/css"/>
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css"  type="text/css"/-->
 
 	
 </head>
+
 <body>
 	
-
+    
 	<div class="container">
 
 	<!--navbar-->
@@ -46,18 +51,14 @@
 	        	 <ul class="nav navbar-nav">
 	       		 	<li><a href="#">Contact</a></li>
 	        	 </ul>
-			     <ul class="nav navbar-nav navbar-right">
-
-		            <li><a href="employeeLogin">Employee Login</a></li>
-
-		        </ul>
-		         <ul class="nav navbar-nav">
+	        	 <ul class="nav navbar-nav">
 	       		 	<li><a href="about">About Us</a></li>
-	        	 </ul>
-		      </div><!-- /.navbar-collapse -->
+	        	 </ul></div><!-- /.navbar-collapse -->
 	 		 </div><!-- /.container-fluid -->
 		</nav>	
-	</div>  <!--row for navbar-->	
+	</div>  <!--row for navbar-->
+
+	
 
 		<div class="row">
 			<div class="col-md-3 sidebar"> <!--sidebar-->
@@ -65,14 +66,14 @@
         			<span href="#" class="list-group-item active">
            			 	Plots
        				</span>
-			        <a href="#" class="list-group-item">
+			        <a href="plot_view" class="list-group-item">
 			             On Going project
 			        </a>
 			        <a href="#" class="list-group-item">
 			             Ready flat
 			        </a>
-			        <a href="#" class="list-group-item">
-			             Gallery
+			        <a href="plot" class="list-group-item">
+			             Map view
 			        </a>
 
     			</div> 
@@ -126,80 +127,69 @@
 			<!--employee table-->
 			<div class="col-md-9">
 			    <br>
-			    <h1>MANAGER</h1>
+			    <h1>PLOTS [ On-Going ]</h1>
 				<table class="table table-bordered">
 			        <thead>
 			            <tr>
-			                <th>Employee ID</th>
-			                <th>Employee Section</th>
-			                <th>Name</th>
-			                <th>Address</th>
-			                <th>Contact</th>
-			                <th>Email</th>
-			                <th>Designation</th>
+			              <th>Plot ID</th>
+			                <th>Latitude</th>
+			                <th>Longitude</th>
+			                <th>Price</th>
+			                <th>Space (sq-ft)</th>
+			                <th>Manager ID</th>
+			                <th>Description</th>
+			                <th>Architect ID</th>
+			                <th>Link</th>
 			            </tr>
 			        </thead>
 			        <tbody>
-			            <tr>        
-			                <td>John</td>
-			                <td>903456</td>
-			                <td>johncarter@mail.com</td>
-			            </tr>
-			            <tr>   
-			                <td>Peter</td>
-			                <td>0129384756</td>
-			                <td>peterparker@mail.com</td>
-			            </tr>
-			            <tr>
-			                <td>Maszhar</td>
-			                <td>12345674123</td>
-			                <td>johnrambo@mail.com</td>
-			            </tr>
+			        
+				       <tr> 
+				       
+				        <?php 
+				       //echo '<th>'
+				           foreach($details as $tmp){
+				           		
+				           		echo '<tr>
+				           			<td>'.$tmp->plot_id.'</td>
+				           			<td>'.$tmp->latitude.'</td>
+				           			<td>'.$tmp->longitude.'</td>
+				           			<td>'.$tmp->price.'</td>
+				           			<td>'.$tmp->space.'</td>
+				           			<td>'.$tmp->manager_id.'</td>
+				           			<td>'.$tmp->description.'</td>
+				           			<td>'.$tmp->archi_id.'</td>
+				           			<td>'.$tmp->map_link.'</td>
+				           			</tr>';
+				           		//echo '<td>'.$tmp->section.'</td>';
+				           		
+
+				           }
+				       // echo '</th>';
+				        ?>
+				        
+			        </tr>
+			        
 			        </tbody>
 			    </table>				
 			</div>
 
-			<div class="col-md-9">
-			    <br>
-			    <h1>PUBLIC RELATION OFFICER</h1>
-				<table class="table table-bordered">
-			        <thead>
-			            <tr>
-			                <th>Name</th>
-			                <th>Phone No.</th>
-			                <th>Email</th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			            <tr>        
-			                <td>MD. A</td>
-			                <td>903456</td>
-			                <td>MDA@mail.com</td>
-			            </tr>
-			            <tr>   
-			                <td>Ahmed</td>
-			                <td>0129384756</td>
-			                <td>ahmed@mail.com</td>
-			            </tr>
-			            <tr>
-			                <td>biplob</td>
-			                <td>12345674123</td>
-			                <td>bip@mail.com</td>
-			            </tr>
-			        </tbody>
-			    </table>				
+					</div>
+
+				       
 			</div>
+
 			
 
-		</div>
 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap.min.js"></script>
 
 
 	</div>  <!--container-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
+	<script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"</script>
 	
 </body>
+

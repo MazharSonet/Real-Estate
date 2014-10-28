@@ -14,8 +14,8 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= '';
-$config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/RealEstate';
+$config['base_url']	= '';
+//$config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/Real-Estate';
 
 /*
 |--------------------------------------------------------------------------
@@ -215,7 +215,6 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 |
 */
 $config['cache_path'] = '';
-
 /*
 |--------------------------------------------------------------------------
 | Encryption Key

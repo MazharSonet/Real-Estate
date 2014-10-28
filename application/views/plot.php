@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <title>
-	Employee
+	Home
 </title>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
@@ -9,12 +9,17 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-theme.css'); ?>" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-theme.min.css'); ?>" type="text/css">
-
+	<!--link rel="stylesheet" href="loaclhost/bootstrap/css/bootstrap.css"   type="text/css"/>
+	<link rel="stylesheet" href="localhost/css/bootstrap.min.css"  type="text/css"/>
+	<link rel="stylesheet" href="css/bootstrap-theme.css"  type="text/css"/>
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css"  type="text/css"/-->
+	<?php echo $map["js"]; ?>
 	
 </head>
+
 <body>
 	
-
+    
 	<div class="container">
 
 	<!--navbar-->
@@ -46,33 +51,29 @@
 	        	 <ul class="nav navbar-nav">
 	       		 	<li><a href="#">Contact</a></li>
 	        	 </ul>
-			     <ul class="nav navbar-nav navbar-right">
-
-		            <li><a href="employeeLogin">Employee Login</a></li>
-
-		        </ul>
-		         <ul class="nav navbar-nav">
+	        	 <ul class="nav navbar-nav">
 	       		 	<li><a href="about">About Us</a></li>
-	        	 </ul>
-		      </div><!-- /.navbar-collapse -->
+	        	 </ul></div><!-- /.navbar-collapse -->
 	 		 </div><!-- /.container-fluid -->
 		</nav>	
-	</div>  <!--row for navbar-->	
+	</div>  <!--row for navbar-->
+
+	
 
 		<div class="row">
 			<div class="col-md-3 sidebar"> <!--sidebar-->
 				<div class="list-group">
-        			<span href="#" class="list-group-item active">
+        			<span href="" class="list-group-item active">
            			 	Plots
        				</span>
-			        <a href="#" class="list-group-item">
+			        <a href="plot_view" class="list-group-item">
 			             On Going project
 			        </a>
 			        <a href="#" class="list-group-item">
 			             Ready flat
 			        </a>
-			        <a href="#" class="list-group-item">
-			             Gallery
+			        <a href="plot" class="list-group-item">
+			             Map View
 			        </a>
 
     			</div> 
@@ -116,90 +117,60 @@
 						</form>
 						</a>
 					</div>
-					
+					<a class="list-gruop-item" href="about.html">
+							About us
+					</a>
 					</div>
-					
 
 				       
 			</div>
 
-			<!--employee table-->
+			<!--map-->
 			<div class="col-md-9">
-			    <br>
-			    <h1>MANAGER</h1>
-				<table class="table table-bordered">
-			        <thead>
-			            <tr>
-			                <th>Employee ID</th>
-			                <th>Employee Section</th>
-			                <th>Name</th>
-			                <th>Address</th>
-			                <th>Contact</th>
-			                <th>Email</th>
-			                <th>Designation</th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			            <tr>        
-			                <td>John</td>
-			                <td>903456</td>
-			                <td>johncarter@mail.com</td>
-			            </tr>
-			            <tr>   
-			                <td>Peter</td>
-			                <td>0129384756</td>
-			                <td>peterparker@mail.com</td>
-			            </tr>
-			            <tr>
-			                <td>Maszhar</td>
-			                <td>12345674123</td>
-			                <td>johnrambo@mail.com</td>
-			            </tr>
-			        </tbody>
-			    </table>				
-			</div>
+					<a class="list-group-item">
+						<!-- <form class="form-horizontal" role="form"> -->
 
-			<div class="col-md-9">
-			    <br>
-			    <h1>PUBLIC RELATION OFFICER</h1>
-				<table class="table table-bordered">
-			        <thead>
-			            <tr>
-			                <th>Name</th>
-			                <th>Phone No.</th>
-			                <th>Email</th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			            <tr>        
-			                <td>MD. A</td>
-			                <td>903456</td>
-			                <td>MDA@mail.com</td>
-			            </tr>
-			            <tr>   
-			                <td>Ahmed</td>
-			                <td>0129384756</td>
-			                <td>ahmed@mail.com</td>
-			            </tr>
-			            <tr>
-			                <td>biplob</td>
-			                <td>12345674123</td>
-			                <td>bip@mail.com</td>
-			            </tr>
-			        </tbody>
-			    </table>				
-			</div>
-			
+						<form  class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="plot">
+					
+						  <div class="form-group">
+						    <label for="emp_id" class="col-sm-4 control-label">Enter Lowest Price</label>
+						    <div class="col-sm-4"> 
+						      <input type="text" class="form-control" id="l_price" name="l_price" >
+						    </div>
+						  </div>
+						  
+						  <div class="form-group">
+						    <label for="emp_section" class="col-sm-4 control-label">Enter Highest Price</label>
+						    <div class="col-sm-4">
+						      <input type="text" class="form-control" id="h_price" name="h_price" >
+						    </div>
+						  </div>
+						  
+						  
+	 
+						  <div class="form-group">
+						    <div class="col-sm-offset-4 col-sm-6">
+						      <button type="submit" class="btn btn-default" value="search">Search</button>
+						    </div>
+						  </div>
+						</form>
+					</a>
+						
 
+			 
+				<?php echo $map["html"]; ?>
+			</div><!--END cAUROSEL-->
 		</div>
 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+
+
 
 
 	</div>  <!--container-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
+	<script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"</script>
 	
 </body>

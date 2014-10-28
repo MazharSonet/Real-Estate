@@ -65,14 +65,14 @@
         			<span href="#" class="list-group-item active">
            			 	Plots
        				</span>
-			        <a href="#" class="list-group-item">
+			        <a href="plot_view" class="list-group-item">
 			             On Going project
 			        </a>
 			        <a href="#" class="list-group-item">
 			             Ready flat
 			        </a>
-			        <a href="#" class="list-group-item">
-			             Gallery
+			        <a href="plot" class="list-group-item">
+			             Map view
 			        </a>
 
     			</div> 
@@ -122,11 +122,68 @@
 
 				       
 			</div>
-
+			
 			<!--employee table-->
 			<div class="col-md-9">
-			    <br>
+
+
 			    <h1>MANAGER</h1>
+				<table class="table table-bordered">
+			        <thead>
+			            <tr>
+			              <th>Employee ID</th>
+			                <th>Employee Section</th>
+			                <th>Name</th>
+			                <th>Address</th>
+			                <th>Contact</th>
+			                <th>Email</th>
+			                <th>Designation</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			        
+				       <tr> 
+				       
+				        <?php 
+				       //echo '<th>'
+				           foreach($details as $tmp){
+				           		
+				           		echo '<tr>
+				           			<td>'.$tmp->emp_id.'</td>
+				           			<td>'.$tmp->emp_section.'</td>
+				           			<td>'.$tmp->name.'</td>
+				           			<td>'.$tmp->address.'</td>
+				           			<td>'.$tmp->contact.'</td>
+				           			<td>'.$tmp->email.'</td>
+				           			<td>'.$tmp->designation.'</td>
+				           			</tr>';
+				           		//echo '<td>'.$tmp->section.'</td>';
+				           		
+
+				           }
+				       // echo '</th>';
+				        ?>
+				        
+			        </tr>
+			        
+			        </tbody>
+			    </table>				
+			</div>
+			
+
+			<div class="col-md-9">
+			<form  class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="insert_mgr"> 
+						  
+	 
+						  <div class="form-group">
+						    <div class="col-sm-offset-4 col-sm-4">
+						      <button type="submit" class="btn btn-default" value="insert">Insert Manager</button>
+						    </div>
+						  </div>
+						</form>
+			    
+
+			    <h1>PUBLIC RELATION OFFICER</h1>
 				<table class="table table-bordered">
 			        <thead>
 			            <tr>
@@ -139,55 +196,45 @@
 			                <th>Designation</th>
 			            </tr>
 			        </thead>
-			        <tbody>
-			            <tr>        
-			                <td>John</td>
-			                <td>903456</td>
-			                <td>johncarter@mail.com</td>
-			            </tr>
-			            <tr>   
-			                <td>Peter</td>
-			                <td>0129384756</td>
-			                <td>peterparker@mail.com</td>
-			            </tr>
-			            <tr>
-			                <td>Maszhar</td>
-			                <td>12345674123</td>
-			                <td>johnrambo@mail.com</td>
-			            </tr>
-			        </tbody>
-			    </table>				
-			</div>
+			       <tbody>
+			        
+				       <tr> 
+				       
+				        <?php 
+				       //echo '<th>'
+				           foreach($ofc_details as $tmp){
+				           		
+				           		echo '<tr>
+				           			<td>'.$tmp->emp_id.'</td>
+				           			<td>'.$tmp->emp_section.'</td>
+				           			<td>'.$tmp->name.'</td>
+				           			<td>'.$tmp->address.'</td>
+				           			<td>'.$tmp->contact.'</td>
+				           			<td>'.$tmp->email.'</td>
+				           			<td>'.$tmp->designation.'</td>
+				           			</tr>';
+				           		//echo '<td>'.$tmp->section.'</td>';
+				           		
 
-			<div class="col-md-9">
-			    <br>
-			    <h1>PUBLIC RELATION OFFICER</h1>
-				<table class="table table-bordered">
-			        <thead>
-			            <tr>
-			                <th>Name</th>
-			                <th>Phone No.</th>
-			                <th>Email</th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			            <tr>        
-			                <td>MD. A</td>
-			                <td>903456</td>
-			                <td>MDA@mail.com</td>
-			            </tr>
-			            <tr>   
-			                <td>Ahmed</td>
-			                <td>0129384756</td>
-			                <td>ahmed@mail.com</td>
-			            </tr>
-			            <tr>
-			                <td>biplob</td>
-			                <td>12345674123</td>
-			                <td>bip@mail.com</td>
-			            </tr>
+				           }
+				       // echo '</th>';
+				        ?>
+				        
+			        </tr>
+			        
 			        </tbody>
-			    </table>				
+			    </table>
+			    <hr>	
+			    <form  class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="insert_mgr"> 
+						  
+	 
+						  <div class="form-group">
+						    <div class="col-sm-offset-4 col-sm-4">
+						      <button type="submit" class="btn btn-default" value="insert">Insert Officer</button>
+						    </div>
+						  </div>
+						</form>
+									
 			</div>
 			
 

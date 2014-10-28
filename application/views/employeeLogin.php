@@ -2,13 +2,13 @@
 
 <title>
 	Employee
-</title>>
+</title>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-	<link rel="stylesheet" href="css/bootstrap.css"  type="text/css"/>
-	<link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css"/>
-	<link rel="stylesheet" href="css/bootstrap-theme.css"  type="text/css"/>
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css"  type="text/css"/>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-theme.css" type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-theme.min.css" type="text/css">
 
 	
 </head>
@@ -17,6 +17,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<div class="container">
+
+	<!--navbar-->
+
+
 	<div class="container">
 
 	<!--navbar-->
@@ -34,29 +39,28 @@
 	        		<span class="icon-bar"></span>
 	        		<span class="icon-bar"></span>
 	      		</button>
-	      	<a class="navbar-brand" href="home.html">HOME</a>
+	      	<a class="navbar-brand" href="home">HOME</a>
 	    	</div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	     		 <ul class="nav navbar-nav">
-	       		 	<li><a href="employee.html">Employer</a></li>
+	       		 	<li><a href="employee">Employer</a></li>
 	        	 </ul>
 	        	 <ul class="nav navbar-nav">
-	       		 	<li><a href="portfolio.html">Portfolio</a></li>
+	       		 	<li><a href="portfolio">Portfolio</a></li>
 	        	 </ul>
 	        	 <ul class="nav navbar-nav">
 	       		 	<li><a href="#">Contact</a></li>
 	        	 </ul>
-			     <ul class="nav navbar-nav navbar-right">
-
-		            <li><a href="#">Employee Login</a></li>
-
-		        </ul>
+			     
+		         <ul class="nav navbar-nav">
+	       		 	<li><a href="about">About Us</a></li>
+	        	 </ul>
 		      </div><!-- /.navbar-collapse -->
 	 		 </div><!-- /.container-fluid -->
 		</nav>	
-	</div>  <!--row for navbar-->	
+	</div>  <!--row for navbar-->		
 
 		<div class="row">
 			<div class="col-md-3 sidebar"> <!--sidebar-->
@@ -77,11 +81,7 @@
     			</div> 
     			
 					
-					<a class="list-gruop-item" href="about.html">
-					<br>
-							<h1>About us</h1>
-					</a>
-
+					
 				       
 			</div>
 

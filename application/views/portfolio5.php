@@ -50,8 +50,7 @@
                  </ul>
                  <ul class="nav navbar-nav">
                     <li><a href="about">About Us</a></li>
-                 </ul>
-                 </div><!-- /.navbar-collapse -->
+                 </ul></div><!-- /.navbar-collapse -->
              </div><!-- /.container-fluid -->
         </nav>  
     </div>  <!--row for navbar-->
@@ -63,8 +62,8 @@
                     <small>Duplex House-</br>
                     Plot ID--
                      <?php
-                    //foreach($places as $tmp)
-                         echo $places->plot_id ;                         
+                    //foreach($details as $tmp)
+                         echo $places->plot_id ;                       
                     ?>
                     </small>
                 </h1>
@@ -76,7 +75,7 @@
         <div class="row">
 
             <div class="col-md-8">
-                <img class="img-responsive" src="<?php echo base_url('assets/image/build1.jpg'); ?>" alt="">
+                <img class="img-responsive" src="<?php echo base_url('assets/image/build5.jpg'); ?>" alt="">
             </div>
 
             <div class="col-md-4">
@@ -87,7 +86,7 @@
                 <ul>
                     <li><big>Architect :</big>
                     <?php
-                    //foreach($places as $tmp)
+                    //foreach($details as $tmp)
                          echo $places->name ;                         
                     ?>
                     </li>
@@ -95,7 +94,8 @@
                     <?php
                     //foreach($price_details as $tmp)
                          echo $price_details->price;                         
-                    ?></li>
+                    ?>
+                    </li>
                 	<li><big>Foundation</big> :Pile foundation, basement raft with strip beams</li>
                 
                     <li><big>Floor</big> : Ceramic tiles</li>
@@ -115,6 +115,12 @@
             </div>
 
             <div class="col-sm-3 col-xs-6">
+                <a href="portfolio">
+                    <img class="img-responsive portfolio-item" src="<?php echo base_url('assets/image/build1.jpg'); ?>" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
                 <a href="portfolio2">
                     <img class="img-responsive portfolio-item" src="<?php echo base_url('assets/image/build2.jpg'); ?>" alt="">
                 </a>
@@ -129,12 +135,6 @@
             <div class="col-sm-3 col-xs-6">
                 <a href="portfolio4">
                     <img class="img-responsive portfolio-item" src="<?php echo base_url('assets/image/build4.jpg'); ?>" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="portfolio5">
-                    <img class="img-responsive portfolio-item" src="<?php echo base_url('assets/image/build5.jpg'); ?>" alt="">
                 </a>
             </div>
 
