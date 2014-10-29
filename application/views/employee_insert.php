@@ -82,13 +82,14 @@
 				       
 			</div>
 
+
 		<!--employee insert-->
 
 					<h1>Insert Employee</h1>
 					<div class="col-md-9">
 					<a class="list-group-item">
 						
-						<form  class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="insert_emp">  	
+						<form name="employee_form" class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="insert_mgr">  	
 					
 					
 						  <div class="form-group">
@@ -142,14 +143,16 @@
 	 
 						  <div class="form-group">
 						    <div class="col-sm-offset-2 col-sm-10">
-						      <button type="submit" class="btn btn-default">Insert</button>
+						      <button type="submit" class="btn btn-default" onclick="allLetter(document.employee_form.name)"  >Insert</button>
 						    </div>
 						  </div>
 						</form>
 					</a>
 					</div>
+
 					
-					</div>
+					
+				</div>
 
 			
 		</div>
@@ -166,5 +169,24 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
-	<script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"</script>
+	<script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
+	<script type="text/javascript">
+
+	function allLetter(inputtxt)  
+	  {  
+	   var letters = /^[A-Za-z\s]+$/;  
+	   if(inputtxt.value.match(letters))  
+	     {  
+	      return true;  
+	     }  
+	   else  
+	     {  
+	     alert(" Enter Valid name ");
+	    
+	     return false;  
+	     }  
+	  }  
+
+
+	</script>
 </body>

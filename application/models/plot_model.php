@@ -78,7 +78,7 @@
    {
  
 
-	$this->db->select('latitude,longitude,map_link');
+	$this->db->select('plot_id,latitude,longitude,map_link');
 	// $this->db->from('plot');
 	$this->db->where('price >=',$lp);
 	$this->db->where('price <=',$hp);

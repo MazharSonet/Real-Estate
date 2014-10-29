@@ -77,47 +77,19 @@
 
     			</div> 
     			
-					<!--for user login-->
-					<div class="list-group">
-					<span href="#" class="list-group-item active">
-           			 	User Login
-       				</span>
-						<br>
-					
-					<div class="col-md-12">
-					<a class="list-group-item">
-						<form class="form-horizontal" role="form">
-						  <div class="form-group">
-						    <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-						    <div class="col-sm-9">
-						      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
-						    <div class="col-sm-8">
-						      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <div class="col-sm-offset-2 col-sm-10">
-						      <div class="checkbox">
-						        <label>
-						          <input type="checkbox"> Remember me
-						        </label>
-						      </div>
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <div class="col-sm-offset-2 col-sm-10">
-						      <button type="submit" class="btn btn-default">Sign in</button>
-						    </div>
-						  </div>
-						</form>
-						</a>
-					</div>
-					
-					</div>
+					<?php
+					$logged_in = $this->session->userdata('logged_in');
+					//var_dump($this->session->userdata);
+					if($logged_in)
+					{
+						
+						$this->load->view('logout_partial');  
+					}
+					else{
+						$this->load->view('login_form_partial');
+					}
+
+				?>
 					
 
 				       
@@ -172,6 +144,10 @@
 			
 
 			<div class="col-md-9">
+			<?php 
+							//var_dump($this->session->userdata); 
+							if($this->session->userdata('logged_in')) {
+						?>
 			<form  class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="insert_mgr"> 
 						  
 	 
@@ -181,7 +157,7 @@
 						    </div>
 						  </div>
 						</form>
-			    
+			    <?php } ?>
 
 			    <h1>PUBLIC RELATION OFFICER</h1>
 				<table class="table table-bordered">
@@ -225,7 +201,12 @@
 			        </tbody>
 			    </table>
 			    <hr>	
-			    <form  class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="insert_mgr"> 
+			    	<?php 
+							//var_dump($this->session->userdata); 
+							if($this->session->userdata('logged_in')) {
+						?>
+
+			   				 <form  class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="insert_mgr"> 
 						  
 	 
 						  <div class="form-group">
@@ -234,6 +215,7 @@
 						    </div>
 						  </div>
 						</form>
+						<?php } ?>
 									
 			</div>
 			

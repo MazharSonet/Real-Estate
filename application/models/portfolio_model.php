@@ -63,6 +63,12 @@
 
    }
 
+   function get_all_portfoilo(){
+   			$this->db->select("*");
+   			$query= $this->db->get('plot');
+   			return $query->result();
+   }
+
     function select_plot_archi($id)
    {
    		

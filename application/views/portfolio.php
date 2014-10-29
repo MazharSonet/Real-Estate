@@ -43,7 +43,7 @@
                     <li><a href="employee">Employer</a></li>
                  </ul>
                  <ul class="nav navbar-nav">
-                    <li><a href="portfolio">Portfolio</a></li>
+                    <li><a href="portfolio?id=mirpur_01">Portfolio</a></li>
                  </ul>
                  <ul class="nav navbar-nav">
                     <li><a href="#">Contact</a></li>
@@ -64,7 +64,7 @@
                     Plot ID--
                      <?php
                     //foreach($places as $tmp)
-                         echo $places->plot_id ;                         
+                         echo $price_details->plot_id ;                         
                     ?>
                     </small>
                 </h1>
@@ -76,12 +76,16 @@
         <div class="row">
 
             <div class="col-md-8">
-                <img class="img-responsive" src="<?php echo base_url('assets/image/build1.jpg'); ?>" alt="">
+                <img class="img-responsive" src="<?php echo base_url($price_details->img); ?>" alt="">
             </div>
 
             <div class="col-md-4">
                 <h3>Project Description</h3>
-                <p>The Duplex building system offers an attractive accommodation solution for buildings of up to three storeys with unlimited floor area. It creates comfortable, contemporary  workspaces with flexibility for the future.</p>
+                <p><?php
+                    //foreach($price_details as $tmp)
+                         echo $price_details->description;                         
+                    ?>
+                    </p>
                 <h3>Project Details</h3>
                 
                 <ul>
@@ -107,15 +111,36 @@
         </div>
         <!-- /.row -->
 
+        
+
+
         <!-- Related Projects Row -->
+        <!--
         <div class="row">
 
             <div class="col-lg-12">
                 <h3 class="page-header">Related Projects</h3>
             </div>
+        
+            <?php 
 
+                 foreach ($all_plots as $plot){
+                    ?>
+
+                     <div class="col-sm-3 col-xs-6">
+                        <a href="portfol?id=<?php echo $plot->plot_id; ?>">
+                            <img class="img-responsive portfolio-item" src="<?php echo base_url($plot->img); ?>" alt="">
+                        </a>
+                    </div>
+
+                    <?php 
+
+                 }   
+
+            ?>
+            
             <div class="col-sm-3 col-xs-6">
-                <a href="portfolio2">
+                <a href="portfol?id=dhanmondi_02">
                     <img class="img-responsive portfolio-item" src="<?php echo base_url('assets/image/build2.jpg'); ?>" alt="">
                 </a>
             </div>
@@ -137,31 +162,11 @@
                     <img class="img-responsive portfolio-item" src="<?php echo base_url('assets/image/build5.jpg'); ?>" alt="">
                 </a>
             </div>
+            -->
 
-        </div>
-        <!-- /.row -->
+       
+        
 
-        <hr>
+       
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Thank you for visiting</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-
-
-
-
-
-
-	</div>  <!--container-->
-	
-</body>
+   

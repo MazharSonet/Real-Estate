@@ -5,7 +5,28 @@
          
  	}
 
- 	
+	public function logout(){
+
+		$this->session->set_userdata('logged_in', FALSE);
+		redirect('HomeController/home');
+	}
+ 	public function login(){
+
+ 		//if($this->input->post())
+ 		{
+
+	   		$email = $this->input->post('inputEmail3');
+	   		$pass=$this->input->post('inputPassword3');
+	   		$this->load->model('login_model');
+	   		$valid = $this->login_model->check_login_cred($email,$pass);
+	   		 			
+	   			
+			$this->session->set_userdata( 'logged_in', TRUE);
+	   		
+	   		redirect('HomeController/home');
+
+   		}
+ 	}
 
  	public function plot()
 	{
@@ -17,7 +38,9 @@
 		//$this->load->helper(array('form'));
 
 		$config['apikey'] = 'ABQIBAAADiypSsSGMm4zOSm7T0Nf1BT2yXp_ZAY8_ufC3CFXhHIE1NvwkxTegq9k46u7yla9Jc-SjozzP0J8ig';
-		$config['center'] = '23.72671977, 90.38817974';
+		if(!$this->input->post()){
+			$config['center'] = '23.72671977, 90.38817974';
+		}
 		$config['zoom'] = 'auto';
 		//$config['directionsDraggable']='TRUE';
 		$this->googlemaps->initialize($config);
@@ -34,7 +57,7 @@
 			$marker['position'] = $coord->latitude.','.$coord->longitude;
 //$marker['infowindow_content'] ="<a href="portfolio">project available</a>";
 
-			$marker['infowindow_content'] ='<a href="'.$coord->map_link.'">project available</a>';
+			$marker['infowindow_content'] ='<a href=portfolio?id='.$coord->plot_id.'>project available</a>';
 			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|9999FF|000000';
 			$this->googlemaps->add_marker($marker);
 		}
@@ -51,17 +74,21 @@
 		$empID= $this->input->post('emp_id');
 		$empSec= $this->input->post('emp_section');
         $name= $this->input->post('name');
+        $numberOfNumbersFound = preg_match("/[0-9]+/", $name);       
 		$adr= $this->input->post('address');
 		$con= $this->input->post('contact');
 		$mail= $this->input->post('email');
 		$desg= $this->input->post('designation');
 		$this->load->model('home_model');
-		$query= $this->home_model->insert_employee($empID,$empSec,$name,$adr,$con,$mail,$desg);
+		 if($numberOfNumbersFound == 0 ){
+		 	$query= $this->home_model->insert_employee($empID,$empSec,$name,$adr,$con,$mail,$desg);
+        }
+		
 		}
 		
 	}
 	public function insert_pro(){
-		$this->load->view('manager_insert.php');
+		$this->load->view('employee_insert.php');
 		if($this->input->post()){
 		$empID= $this->input->post('emp_id');
 		$empSec= $this->input->post('emp_section');
@@ -75,6 +102,8 @@
 		}
 		
 	}
+
+
 	
 	public function update_emp(){
 		$this->load->model('home_model');
@@ -91,6 +120,7 @@
 	
 	public function home()
 	{
+		//var_dump($this->session->userdata);
 		$this->load->view('home.php');
 	}
 	public function plot_view()
@@ -110,19 +140,25 @@
 		$this->load->view('all_employee.php',$query);
 		
 	}
-	
-	
 
-
+	
 	
 	public function portfolio(){
+		$port_id=$this->input->get('id');
+
 		$this->load->model('portfolio_model');
 		$this->load->model('plot_model');
-		$query["price_details"]= $this->plot_model->select_price("mirpur_01");
-		$query["places"]= $this->portfolio_model->select_plot_archi("mirpur_01");
-		
-		$this->load->view('portfolio.php',$query);
+		$query["price_details"]= $this->plot_model->select_price($port_id);
+		$query["places"]= $this->portfolio_model->select_plot_archi($port_id);
+		$query["all_plots"]=$this->portfolio_model->get_all_portfoilo();
+		//$query["all_plots"]=$this->portfolio_model->get_all_portfoilo();
+
+		$this->load->view('portfolio.php',$query); 
+        $this->load->view('related_plot_partial');        
+        $this->load->view('footer');
+       
 	}
+	/*
 	public function portfolio2(){
 		$this->load->model('portfolio_model');
 		$this->load->model('plot_model');
@@ -156,8 +192,9 @@
 		
 		$this->load->view('portfolio5.php',$query);
 	}
+	*/
 	public function about(){
-		$this->load->view('about.html');
+		$this->load->view('about');
 	}
 	public function employeeLogin(){
 		$this->load->view('employeeLogin.php');

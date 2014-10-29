@@ -24,10 +24,18 @@
 			'contact'=>$con,
 			'email'=>$mail,
 			'designation'=>$desg
-			);		
-        $query= $this->db->insert('manager', $data);
+			);	
+		if($empSec== 'MGR')	{
+			$query= $this->db->insert('manager', $data);
+			return $query;
+		}
+		else if($empSec== 'OFCR'){
+			$query= $this->db->insert('pro', $data);
+			return $query;
+		}
+        
 		//echo $this->db->last_sql();
-		return $query;
+		
     }
 
     function insert_officer($empID,$empSec,$name,$adr,$con,$mail,$desg)
