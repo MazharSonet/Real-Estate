@@ -136,9 +136,7 @@
 			                <th>Longitude</th>
 			                <th>Price</th>
 			                <th>Space (sq-ft)</th>
-			                <th>Manager ID</th>
-			                <th>Description</th>
-			                <th>Architect ID</th>
+			                
 			                <th>Link</th>
 			            </tr>
 			        </thead>
@@ -156,9 +154,9 @@
 				           			<td>'.$tmp->longitude.'</td>
 				           			<td>'.$tmp->price.'</td>
 				           			<td>'.$tmp->space.'</td>
-				           			<td>'.$tmp->manager_id.'</td>
-				           			<td>'.$tmp->description.'</td>
-				           			<td>'.$tmp->archi_id.'</td>
+				           			
+				           			 
+				           			
 				           			<td>'.$tmp->map_link.'</td>
 				           			</tr>';
 				           		//echo '<td>'.$tmp->section.'</td>';

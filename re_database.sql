@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2014 at 07:31 PM
+-- Generation Time: Oct 29, 2014 at 09:40 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -49,7 +49,8 @@ INSERT INTO `architect` (`eng_id`, `eng_type`, `name`, `address`, `contact`, `em
 ('A02', 'architect', 'Masum', 'Mirpur', '80312', 'masum@gmail.com', '2014-08-06', 'dhanmondi_02', NULL, NULL),
 ('A03', 'architect', 'Kamrul', 'mogbazar', '97456', 'kamrul@yahoo.com', '2014-03-04', 'basabo_03', NULL, NULL),
 ('A04', 'architect', 'Shamim', 'ajimpur', '12345', 'shamim@hotmail.com', '2014-08-19', 'agargaon_05', NULL, NULL),
-('A05', 'architect', 'Samin', 'Manikgonj', '45678', 'samin@gmail.com', '2014-04-07', 'bonosree_04', NULL, NULL);
+('A05', 'architect', 'Samin', 'Manikgonj', '45678', 'samin@gmail.com', '2014-04-07', 'bonosree_04', NULL, NULL),
+('A06', 'architect', 'Shuvo', 'khulna', '4561', 'shuvo@gmail.com', NULL, 'shyamoli_06', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,8 @@ CREATE TABLE IF NOT EXISTS `manager` (
 
 INSERT INTO `manager` (`emp_id`, `emp_section`, `name`, `address`, `contact`, `email`, `designation`) VALUES
 ('M01', 'MGR', 'Mazhar', 'Tangail', '01675', 'mics@yahoo.com', 'project manager'),
-('M06', 'MGR', 'Faysal', 'Shyamoli', '78965', 'faysal@ymail.com', 'senior manager');
+('M06', 'MGR', 'Faysal', 'Shyamoli', '78965', 'faysal@ymail.com', 'senior manager'),
+('M0885', 'MGR', 'Mazhr', 'dhanmondi ', '0192345354', 'sdas@sada.com', 'senior manager');
 
 -- --------------------------------------------------------
 
@@ -174,11 +176,12 @@ CREATE TABLE IF NOT EXISTS `plot` (
   `plot_id` varchar(20) NOT NULL,
   `latitude` varchar(255) DEFAULT NULL,
   `longitude` varchar(255) DEFAULT NULL,
+  `img` varchar(255) NOT NULL,
   `price` varchar(255) DEFAULT NULL,
   `space` varchar(255) DEFAULT NULL,
   `manager_id` varchar(10) DEFAULT NULL,
   `description` text,
-  `archi_id` varchar(10) NOT NULL,
+  `archi_id` varchar(10) DEFAULT NULL,
   `map_link` text,
   PRIMARY KEY (`plot_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -187,12 +190,13 @@ CREATE TABLE IF NOT EXISTS `plot` (
 -- Dumping data for table `plot`
 --
 
-INSERT INTO `plot` (`plot_id`, `latitude`, `longitude`, `price`, `space`, `manager_id`, `description`, `archi_id`, `map_link`) VALUES
-('agargaon_05', '23.81434412 	', '90.36816537', '400000', '1600', NULL, 'not started', 'A06', 'portfolio5'),
-('basabo_03', '23.76465756', '90.456056', '6000000', '3000', NULL, 'about to release', 'A03', 'portfolio3'),
-('bonosree_04', '23.778', '90.556', '100000', '1200', NULL, 'almost done', 'A05', 'portfolio4'),
-('dhanmondi_02', '23.74501784', '90.37464559', '5000000', '2500', NULL, 'started', 'A02', 'portfolio2'),
-('mirpur_01', '23.82434412', '90.36816537', '1000000', '1800', 'M01', 'working', 'A01', 'portfolio');
+INSERT INTO `plot` (`plot_id`, `latitude`, `longitude`, `img`, `price`, `space`, `manager_id`, `description`, `archi_id`, `map_link`) VALUES
+('agargaon_05', '23.81434412 	', '90.36816537', 'assets/image/build5.jpg', '400000', '1600', NULL, 'not started', 'A06', 'portfolio5'),
+('basabo_03', '23.76465756', '90.456056', 'assets/image/build3.jpg', '6000000', '3000', NULL, 'about to release', 'A03', 'portfolio3'),
+('bonosree_04', '23.778', '90.556', 'assets/image/build4.jpg', '100000', '1200', NULL, 'almost done', 'A05', 'portfolio4'),
+('dhanmondi_02', '23.74501784', '90.37464559', 'assets/image/build2.jpg', '5000000', '2500', NULL, 'The Duplex building system offers an attractive accommodation solution for buildings of up to three storeys with unlimited floor area. It creates comfortable, contemporary workspaces with flexibility for the future.', 'A02', 'portfolio2'),
+('mirpur_01', '23.82434412', '90.36816537', 'assets/image/build1.jpg', '1000000', '1800', 'M01', 'working', 'A01', 'portfolio'),
+('shyamoli_06', NULL, NULL, 'assets/image/build6.jpg', NULL, NULL, NULL, NULL, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -216,6 +220,8 @@ CREATE TABLE IF NOT EXISTS `pro` (
 --
 
 INSERT INTO `pro` (`emp_id`, `emp_section`, `name`, `address`, `contact`, `email`, `designation`) VALUES
+('P02', 'OFCR', 'Mazhar son', 'dhanmondi ', '123456', 'mazhar@yahoo.com.com', 'senior manager'),
+('P03', 'OFCR', 'Tamzeed', 'pollobi', '123456', 'tam@gmail.com', 'human officer'),
 ('PR01', 'OFCR', 'Rahat', 'Mirpur', '01924', 'rahat@yahoo.com', 'senior officer');
 
 -- --------------------------------------------------------
@@ -250,6 +256,7 @@ CREATE TABLE IF NOT EXISTS `updates` (
 
 CREATE TABLE IF NOT EXISTS `user` (
   `customer_id` varchar(10) NOT NULL,
+  `role` varchar(10) NOT NULL,
   `manager_id` varchar(10) NOT NULL,
   `name` varchar(10) NOT NULL,
   `address` varchar(10) NOT NULL,
@@ -259,6 +266,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(10) NOT NULL,
   PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`customer_id`, `role`, `manager_id`, `name`, `address`, `contact`, `password`, `booking_serial`, `email`) VALUES
+('1', 'admin', '1', 'Apu', 'asdf', 'no', 'aaaa', 'aa1', 'a@a.com');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

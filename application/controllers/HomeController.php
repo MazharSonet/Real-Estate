@@ -42,7 +42,7 @@
 			$config['center'] = '23.72671977, 90.38817974';
 		}
 		$config['zoom'] = 'auto';
-		//$config['directionsDraggable']='TRUE';
+		$config['directionsDraggable']='TRUE';
 		$this->googlemaps->initialize($config);
 
 		//$loc=$this->plot_model->get_coord();
